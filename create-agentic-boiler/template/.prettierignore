@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+pnpm-lock.yaml
+
+# Build outputs
+.next/
+dist/
+build/
+
+# Database
+drizzle/
+
+# Generated files
+*.min.js
+*.min.css
+
+# Template (has its own formatting)
+create-agentic-boiler/
+
+# Cache
+.cache/
+
+# IDE
+.idea/
+.vscode/
