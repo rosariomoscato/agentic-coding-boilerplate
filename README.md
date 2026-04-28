@@ -28,58 +28,20 @@ Prima di iniziare, assicurati di avere installato sul tuo computer:
 
 ## 🛠️ Installazione Rapida
 
-### Setup Automatico (Consigliato)
-
-Inizia con un singolo comando:
+Inizia con un singolo comando usando [degit](https://github.com/Rich-Harris/degit):
 
 ```bash
-npx create-agentic-boiler@latest my-app
+npx degit rosariomoscato/agentic-coding-boilerplate my-app
 cd my-app
 ```
 
-Oppure crea nella directory corrente:
+Questo creerà una copia pulita del boilerplate nella cartella `my-app`.
 
-```bash
-npx create-agentic-boiler@latest .
-```
+### Passaggi Post-Installazione
 
-La CLI provvederà a:
-- Copiare tutti i file del boilerplate
-- Installare le dipendenze con il tuo package manager preferito (pnpm/npm/yarn)
-- Configurare il file ambiente
+Dopo aver scaricato il boilerplate, segui questi passaggi:
 
-**Passaggi successivi dopo l'esecuzione del comando:**
-
-1. Aggiorna `.env` con le tue chiavi API e le credenziali del database
-2. Avvia il database: `docker compose up -d`
-3. Esegui le migrazioni: `npm run db:migrate`
-4. Avvia il server di sviluppo: `npm run dev`
-
-### Setup Manuale (Alternativa)
-
-Se preferisci configurare manualmente:
-
-**1. Clona o Scarica il Repository**
-
-**Opzione A: Clona con Git**
-
-```bash
-git clone https://github.com/agentic-coding-boilerplate/agentic-coding-boilerplate.git
-cd agentic-coding-boilerplate
-```
-
-**Opzione B: Scarica ZIP**
-Scarica il repository come file ZIP ed estrailo nella posizione desiderata.
-
-**2. Installa le Dipendenze**
-
-```bash
-npm install
-```
-
-**3. Configurazione Ambiente**
-
-Copia il file ambiente di esempio:
+**1. Configura le variabili d'ambiente**
 
 ```bash
 cp env.example .env
@@ -113,19 +75,28 @@ NEXT_PUBLIC_APP_URL="http://localhost:3000"
 BLOB_READ_WRITE_TOKEN=""
 ```
 
-**4. Configurazione Database**
-
-Genera ed esegui le migrazioni del database:
+**2. Installa le dipendenze**
 
 ```bash
-npm run db:generate
-npm run db:migrate
+pnpm install
 ```
 
-**5. Avvia il Server di Sviluppo**
+**3. Avvia il database**
 
 ```bash
-npm run dev
+docker compose up -d
+```
+
+**4. Esegui le migrazioni del database**
+
+```bash
+pnpm run db:migrate
+```
+
+**5. Avvia il server di sviluppo**
+
+```bash
+pnpm run dev
 ```
 
 La tua applicazione sarà disponibile su [http://localhost:3000](http://localhost:3000)
