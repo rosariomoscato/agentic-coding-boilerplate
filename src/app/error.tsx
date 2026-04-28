@@ -13,7 +13,7 @@ export default function Error({
 }) {
   useEffect(() => {
     // Log the error to an error reporting service
-    console.error("Application error:", error);
+    console.error("Errore dell'applicazione:", error);
   }, [error]);
 
   return (
@@ -22,20 +22,19 @@ export default function Error({
         <div className="flex justify-center mb-6">
           <AlertCircle className="h-16 w-16 text-destructive" />
         </div>
-        <h1 className="text-2xl font-bold mb-4">Something went wrong</h1>
+        <h1 className="text-2xl font-bold mb-4">Qualcosa è andato storto</h1>
         <p className="text-muted-foreground mb-6">
-          An unexpected error occurred. Please try again or contact support if
-          the problem persists.
+          Si è verificato un errore imprevisto. Riprova o contatta il supporto se il problema persiste.
         </p>
         {error.digest && (
           <p className="text-xs text-muted-foreground mb-4">
-            Error ID: {error.digest}
+            ID Errore: {error.digest}
           </p>
         )}
         <div className="flex gap-4 justify-center">
-          <Button onClick={reset}>Try again</Button>
+          <Button onClick={reset}>Riprova</Button>
           <Button variant="outline" onClick={() => (window.location.href = "/")}>
-            Go home
+            Vai alla home
           </Button>
         </div>
       </div>

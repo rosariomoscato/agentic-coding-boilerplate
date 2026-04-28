@@ -10,13 +10,13 @@ export default function NotFound() {
           <FileQuestion className="h-16 w-16 text-muted-foreground" />
         </div>
         <h1 className="text-4xl font-bold mb-4">404</h1>
-        <h2 className="text-xl font-semibold mb-4">Page Not Found</h2>
+        <h2 className="text-xl font-semibold mb-4">Pagina Non Trovata</h2>
         <p className="text-muted-foreground mb-6">
-          The page you&apos;re looking for doesn&apos;t exist or has been moved.
+          La pagina che stai cercando non esiste o è stata spostata.
         </p>
         <div className="flex gap-4 justify-center">
           <Button asChild>
-            <Link href="/">Go home</Link>
+            <Link href="/">Vai alla home</Link>
           </Button>
           <Button variant="outline" asChild>
             <Link href="/dashboard">Dashboard</Link>

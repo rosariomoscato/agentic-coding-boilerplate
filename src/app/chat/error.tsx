@@ -12,7 +12,7 @@ export default function ChatError({
   reset: () => void;
 }) {
   useEffect(() => {
-    console.error("Chat error:", error);
+    console.error("Errore chat:", error);
   }, [error]);
 
   return (
@@ -21,10 +21,10 @@ export default function ChatError({
         <div className="flex justify-center mb-6">
           <MessageSquareWarning className="h-16 w-16 text-destructive" />
         </div>
-        <h1 className="text-2xl font-bold mb-4">Chat Error</h1>
+        <h1 className="text-2xl font-bold mb-4">Errore Chat</h1>
         <p className="text-muted-foreground mb-6">
-          There was a problem with the chat service. This could be due to a
-          connection issue or the AI service being temporarily unavailable.
+          Si è verificato un problema con il servizio di chat. Potrebbe essere dovuto a un
+          problema di connessione o al servizio AI temporaneamente non disponibile.
         </p>
         {error.message && (
           <p className="text-sm text-muted-foreground mb-4 p-2 bg-muted rounded">
@@ -34,10 +34,10 @@ export default function ChatError({
         <div className="flex gap-4 justify-center">
           <Button onClick={reset}>
             <RefreshCw className="h-4 w-4 mr-2" />
-            Try again
+            Riprova
           </Button>
           <Button variant="outline" onClick={() => (window.location.href = "/")}>
-            Go home
+            Vai alla home
           </Button>
         </div>
       </div>
