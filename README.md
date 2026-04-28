@@ -388,7 +388,7 @@ Questo progetto è concesso in licenza sotto la MIT License - vedi il file [LICE
 
 Se riscontri problemi:
 
-1. Consulta la sezione [Issues](https://github.com/agentic-coding-boilerplate/agentic-coding-boilerplate/issues)
+1. Consulta la sezione [Issues](https://github.com/rosariomoscato/agentic-coding-boilerplate/issues)
 2. Rileggi la documentazione sopra
 3. Crea una nuova issue con informazioni dettagliate sul tuo problema
 
