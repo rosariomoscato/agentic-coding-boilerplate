@@ -72,7 +72,7 @@ export function SetupChecklist() {
   const steps = [
     {
       key: "env",
-      label: "Environment variables",
+      label: "Variabili d'ambiente",
       ok:
         !!data?.env.POSTGRES_URL &&
         !!data?.env.BETTER_AUTH_SECRET &&
@@ -83,7 +83,7 @@ export function SetupChecklist() {
     },
     {
       key: "db",
-      label: "Database connected & schema",
+      label: "Database connesso e schema",
       ok: !!data?.database.connected && !!data?.database.schemaApplied,
       detail: data?.database.error
         ? `Errore: ${data.database.error}`
@@ -91,7 +91,7 @@ export function SetupChecklist() {
     },
     {
       key: "auth",
-      label: "Auth configured",
+      label: "Autenticazione configurata",
       ok: !!data?.auth.configured,
       detail:
         data?.auth.routeResponding === false
@@ -100,7 +100,7 @@ export function SetupChecklist() {
     },
     {
       key: "ai",
-      label: "AI integration (optional)",
+      label: "Integrazione AI (opzionale)",
       ok: !!data?.ai.configured,
       detail: !data?.ai.configured
         ? "Imposta OPENROUTER_API_KEY per la chat AI"
@@ -108,7 +108,7 @@ export function SetupChecklist() {
     },
     {
       key: "storage",
-      label: "File storage (optional)",
+      label: "Storage file (opzionale)",
       ok: true, // Always considered "ok" since local storage works
       detail: data?.storage
         ? data.storage.type === "remote"
