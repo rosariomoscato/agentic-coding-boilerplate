@@ -24,12 +24,12 @@ export function ResetPasswordForm() {
       <div className="space-y-4 w-full max-w-sm text-center">
         <p className="text-sm text-destructive">
           {error === "invalid_token"
-            ? "This password reset link is invalid or has expired."
-            : "No reset token provided."}
+            ? "Questo link di reset password non è valido o è scaduto."
+            : "Nessun token di reset fornito."}
         </p>
         <Link href="/forgot-password">
           <Button variant="outline" className="w-full">
-            Request a new link
+            Richiedi un nuovo link
           </Button>
         </Link>
       </div>
@@ -41,12 +41,12 @@ export function ResetPasswordForm() {
     setFormError("")
 
     if (password !== confirmPassword) {
-      setFormError("Passwords do not match")
+      setFormError("Le password non corrispondono")
       return
     }
 
     if (password.length < 8) {
-      setFormError("Password must be at least 8 characters")
+      setFormError("La password deve contenere almeno 8 caratteri")
       return
     }
 
@@ -59,12 +59,12 @@ export function ResetPasswordForm() {
       })
 
       if (result.error) {
-        setFormError(result.error.message || "Failed to reset password")
+        setFormError(result.error.message || "Reimpostazione password non riuscita")
       } else {
         router.push("/login?reset=success")
       }
     } catch {
-      setFormError("An unexpected error occurred")
+      setFormError("Si è verificato un errore imprevisto")
     } finally {
       setIsPending(false)
     }
@@ -73,11 +73,11 @@ export function ResetPasswordForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-sm">
       <div className="space-y-2">
-        <Label htmlFor="password">New Password</Label>
+        <Label htmlFor="password">Nuova Password</Label>
         <Input
           id="password"
           type="password"
-          placeholder="Enter new password"
+          placeholder="Inserisci nuova password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
@@ -85,11 +85,11 @@ export function ResetPasswordForm() {
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="confirmPassword">Confirm New Password</Label>
+        <Label htmlFor="confirmPassword">Conferma Nuova Password</Label>
         <Input
           id="confirmPassword"
           type="password"
-          placeholder="Confirm new password"
+          placeholder="Conferma nuova password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
@@ -100,7 +100,7 @@ export function ResetPasswordForm() {
         <p className="text-sm text-destructive">{formError}</p>
       )}
       <Button type="submit" className="w-full" disabled={isPending}>
-        {isPending ? "Resetting..." : "Reset password"}
+        {isPending ? "Reimpostazione in corso..." : "Reimposta password"}
       </Button>
     </form>
   )

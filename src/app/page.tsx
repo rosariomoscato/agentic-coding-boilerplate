@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Video, Shield, Database, Palette, Bot } from "lucide-react";
+import { Shield, Database, Palette, Bot } from "lucide-react";
 import { SetupChecklist } from "@/components/setup-checklist";
 import { StarterPromptModal } from "@/components/starter-prompt-modal";
 import { Button } from "@/components/ui/button";
@@ -22,44 +22,30 @@ export default function Home() {
             </h1>
           </div>
           <h2 className="text-2xl font-semibold text-muted-foreground">
-            Complete Boilerplate for AI Applications
+            Boilerplate Completo per Applicazioni AI
           </h2>
           <p className="text-xl text-muted-foreground">
-            A complete agentic coding boilerplate with authentication, database, AI
-            integration, and modern tooling for building AI-powered applications
+            Un boilerplate di coding agentic completo con autenticazione, database,
+            integrazione AI e strumenti moderni per creare applicazioni potenti
           </p>
         </div>
 
-        {/* YouTube Tutorial Video */}
-        <div className="space-y-4">
-          <h3 className="text-2xl font-semibold flex items-center justify-center gap-2">
-            <Video className="h-6 w-6" />
-            Video Tutorial
-          </h3>
-          <p className="text-muted-foreground">
-            Watch the complete walkthrough of this agentic coding boilerplate:
-          </p>
-          <div className="relative w-full max-w-3xl mx-auto">
-            <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg border">
-              <iframe
-                className="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/JQ86N3WOAh4"
-                title="Agentic Coding Boilerplate Tutorial"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          </div>
+        <div className="mt-8 rounded-xl overflow-hidden border shadow-lg">
+          <img
+            src="/Home_Page_Image.jpg"
+            alt="Agentic Coding Boilerplate Homepage"
+            className="w-full h-auto"
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           <div className="p-6 border rounded-lg">
             <h3 className="font-semibold mb-2 flex items-center gap-2">
               <Shield className="h-4 w-4" />
-              Authentication
+              Autenticazione
             </h3>
             <p className="text-sm text-muted-foreground">
-              Better Auth with Google OAuth integration
+              Better Auth con integrazione Google OAuth
             </p>
           </div>
           <div className="p-6 border rounded-lg">
@@ -68,25 +54,25 @@ export default function Home() {
               Database
             </h3>
             <p className="text-sm text-muted-foreground">
-              Drizzle ORM with PostgreSQL setup
+              Drizzle ORM con configurazione PostgreSQL
             </p>
           </div>
           <div className="p-6 border rounded-lg">
             <h3 className="font-semibold mb-2 flex items-center gap-2">
               <Bot className="h-4 w-4" />
-              AI Ready
+              Pronto AI
             </h3>
             <p className="text-sm text-muted-foreground">
-              Vercel AI SDK with OpenRouter integration
+              Vercel AI SDK con integrazione OpenRouter
             </p>
           </div>
           <div className="p-6 border rounded-lg">
             <h3 className="font-semibold mb-2 flex items-center gap-2">
               <Palette className="h-4 w-4" />
-              UI Components
+              Componenti UI
             </h3>
             <p className="text-sm text-muted-foreground">
-              shadcn/ui with Tailwind CSS
+              shadcn/ui con Tailwind CSS
             </p>
           </div>
         </div>
@@ -94,27 +80,27 @@ export default function Home() {
         <div className="space-y-6 mt-12">
           <SetupChecklist />
 
-          <h3 className="text-2xl font-semibold">Next Steps</h3>
+          <h3 className="text-2xl font-semibold">Prossimi Passi</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
             <div className="p-4 border rounded-lg">
               <h4 className="font-medium mb-2">
-                1. Set up environment variables
+                1. Configura le variabili d'ambiente
               </h4>
               <p className="text-sm text-muted-foreground mb-2">
-                Copy <code>.env.example</code> to <code>.env.local</code> and
-                configure:
+                Copia <code>.env.example</code> in <code>.env.local</code> e
+                configura:
               </p>
               <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
-                <li>POSTGRES_URL (PostgreSQL connection string)</li>
-                <li>GOOGLE_CLIENT_ID (OAuth credentials)</li>
-                <li>GOOGLE_CLIENT_SECRET (OAuth credentials)</li>
-                <li>OPENROUTER_API_KEY (for AI functionality)</li>
+                <li>POSTGRES_URL (stringa di connessione PostgreSQL)</li>
+                <li>GOOGLE_CLIENT_ID (credenziali OAuth)</li>
+                <li>GOOGLE_CLIENT_SECRET (credenziali OAuth)</li>
+                <li>OPENROUTER_API_KEY (per funzionalità AI)</li>
               </ul>
             </div>
             <div className="p-4 border rounded-lg">
-              <h4 className="font-medium mb-2">2. Set up your database</h4>
+              <h4 className="font-medium mb-2">2. Configura il database</h4>
               <p className="text-sm text-muted-foreground mb-2">
-                Run database migrations:
+                Esegui le migrazioni del database:
               </p>
               <div className="space-y-2">
                 <code className="text-sm bg-muted p-2 rounded block">
@@ -126,15 +112,15 @@ export default function Home() {
               </div>
             </div>
             <div className="p-4 border rounded-lg">
-              <h4 className="font-medium mb-2">3. Try the features</h4>
+              <h4 className="font-medium mb-2">3. Prova le funzionalità</h4>
               <div className="space-y-2">
                 {loading || !isAuthReady ? (
                   <Button size="sm" className="w-full" disabled={true}>
-                    View Dashboard
+                    Vai alla Dashboard
                   </Button>
                 ) : (
                   <Button asChild size="sm" className="w-full">
-                    <Link href="/dashboard">View Dashboard</Link>
+                    <Link href="/dashboard">Vai alla Dashboard</Link>
                   </Button>
                 )}
                 {loading || !isAiReady ? (
@@ -144,7 +130,7 @@ export default function Home() {
                     className="w-full"
                     disabled={true}
                   >
-                    Try AI Chat
+                    Prova Chat AI
                   </Button>
                 ) : (
                   <Button
@@ -153,16 +139,16 @@ export default function Home() {
                     size="sm"
                     className="w-full"
                   >
-                    <Link href="/chat">Try AI Chat</Link>
+                    <Link href="/chat">Prova Chat AI</Link>
                   </Button>
                 )}
               </div>
             </div>
             <div className="p-4 border rounded-lg">
-              <h4 className="font-medium mb-2">4. Start building</h4>
+              <h4 className="font-medium mb-2">4. Inizia a costruire</h4>
               <p className="text-sm text-muted-foreground mb-3">
-                Customize the components, add your own pages, and build your
-                application on top of this solid foundation.
+                Personalizza i componenti, aggiungi le tue pagine e costruisci la
+                tua applicazione su questa solida base.
               </p>
               <StarterPromptModal />
             </div>

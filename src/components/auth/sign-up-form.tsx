@@ -22,12 +22,12 @@ export function SignUpForm() {
     setError("")
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match")
+      setError("Le password non corrispondono")
       return
     }
 
     if (password.length < 8) {
-      setError("Password must be at least 8 characters")
+      setError("La password deve contenere almeno 8 caratteri")
       return
     }
 
@@ -42,13 +42,13 @@ export function SignUpForm() {
       })
 
       if (result.error) {
-        setError(result.error.message || "Failed to create account")
+        setError(result.error.message || "Creazione account non riuscita")
       } else {
         router.push("/dashboard")
         router.refresh()
       }
     } catch {
-      setError("An unexpected error occurred")
+      setError("Si è verificato un errore imprevisto")
     } finally {
       setIsPending(false)
     }
@@ -57,11 +57,11 @@ export function SignUpForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-sm">
       <div className="space-y-2">
-        <Label htmlFor="name">Name</Label>
+        <Label htmlFor="name">Nome</Label>
         <Input
           id="name"
           type="text"
-          placeholder="Your name"
+          placeholder="Il tuo nome"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
@@ -73,7 +73,7 @@ export function SignUpForm() {
         <Input
           id="email"
           type="email"
-          placeholder="you@example.com"
+          placeholder="tu@esempio.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -85,7 +85,7 @@ export function SignUpForm() {
         <Input
           id="password"
           type="password"
-          placeholder="Create a password"
+          placeholder="Crea una password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
@@ -93,11 +93,11 @@ export function SignUpForm() {
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="confirmPassword">Confirm Password</Label>
+        <Label htmlFor="confirmPassword">Conferma Password</Label>
         <Input
           id="confirmPassword"
           type="password"
-          placeholder="Confirm your password"
+          placeholder="Conferma la tua password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
@@ -108,12 +108,12 @@ export function SignUpForm() {
         <p className="text-sm text-destructive">{error}</p>
       )}
       <Button type="submit" className="w-full" disabled={isPending}>
-        {isPending ? "Creating account..." : "Create account"}
+        {isPending ? "Creazione account in corso..." : "Crea account"}
       </Button>
       <div className="text-center text-sm text-muted-foreground">
-        Already have an account?{" "}
+        Hai già un account?{" "}
         <Link href="/login" className="text-primary hover:underline">
-          Sign in
+          Accedi
         </Link>
       </div>
     </form>

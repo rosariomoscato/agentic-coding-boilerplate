@@ -42,7 +42,7 @@ export default function ProfilePage() {
   if (isPending || !session) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div>Loading...</div>
+        <div>Caricamento...</div>
       </div>
     );
   }
@@ -59,7 +59,7 @@ export default function ProfilePage() {
   const handleEditProfileSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // In a real app, this would call an API to update the user profile
-    toast.info("Profile updates require backend implementation");
+    toast.info("Gli aggiornamenti del profilo richiedono l'implementazione del backend");
     setEditProfileOpen(false);
   };
 
@@ -73,9 +73,9 @@ export default function ProfilePage() {
           className="flex items-center gap-2"
         >
           <ArrowLeft className="h-4 w-4" />
-          Back
+          Indietro
         </Button>
-        <h1 className="text-3xl font-bold">Your Profile</h1>
+        <h1 className="text-3xl font-bold">Il tuo Profilo</h1>
       </div>
 
       <div className="grid gap-6">
@@ -86,7 +86,7 @@ export default function ProfilePage() {
               <Avatar className="h-20 w-20">
                 <AvatarImage
                   src={user.image || ""}
-                  alt={user.name || "User"}
+                  alt={user.name || "Utente"}
                   referrerPolicy="no-referrer"
                 />
                 <AvatarFallback className="text-lg">
@@ -104,14 +104,14 @@ export default function ProfilePage() {
                       className="text-green-600 border-green-600"
                     >
                       <Shield className="h-3 w-3 mr-1" />
-                      Verified
+                      Verificato
                     </Badge>
                   )}
                 </div>
                 {createdDate && (
                   <div className="flex items-center gap-2 text-muted-foreground text-sm">
                     <Calendar className="h-4 w-4" />
-                    <span>Member since {createdDate}</span>
+                    <span>Membro dal {createdDate}</span>
                   </div>
                 )}
               </div>
@@ -122,22 +122,22 @@ export default function ProfilePage() {
         {/* Account Information */}
         <Card>
           <CardHeader>
-            <CardTitle>Account Information</CardTitle>
-            <CardDescription>Your account details and settings</CardDescription>
+            <CardTitle>Informazioni Account</CardTitle>
+            <CardDescription>Dettagli e impostazioni del tuo account</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-sm font-medium text-muted-foreground">
-                  Full Name
+                  Nome Completo
                 </label>
                 <div className="p-3 border rounded-md bg-muted/10">
-                  {user.name || "Not provided"}
+                  {user.name || "Non fornito"}
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-muted-foreground">
-                  Email Address
+                  Indirizzo Email
                 </label>
                 <div className="p-3 border rounded-md bg-muted/10 flex items-center justify-between">
                   <span>{user.email}</span>
@@ -146,7 +146,7 @@ export default function ProfilePage() {
                       variant="outline"
                       className="text-green-600 border-green-600"
                     >
-                      Verified
+                      Verificato
                     </Badge>
                   )}
                 </div>
@@ -156,24 +156,24 @@ export default function ProfilePage() {
             <Separator />
 
             <div className="space-y-4">
-              <h3 className="text-lg font-medium">Account Status</h3>
+              <h3 className="text-lg font-medium">Stato Account</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex items-center justify-between p-4 border rounded-lg">
                   <div className="space-y-1">
-                    <p className="font-medium">Email Verification</p>
+                    <p className="font-medium">Verifica Email</p>
                     <p className="text-sm text-muted-foreground">
-                      Email address verification status
+                      Stato di verifica dell'indirizzo email
                     </p>
                   </div>
                   <Badge variant={user.emailVerified ? "default" : "secondary"}>
-                    {user.emailVerified ? "Verified" : "Unverified"}
+                    {user.emailVerified ? "Verificato" : "Non verificato"}
                   </Badge>
                 </div>
                 <div className="flex items-center justify-between p-4 border rounded-lg">
                   <div className="space-y-1">
-                    <p className="font-medium">Account Type</p>
+                    <p className="font-medium">Tipo Account</p>
                     <p className="text-sm text-muted-foreground">
-                      Your account access level
+                      Livello di accesso del tuo account
                     </p>
                   </div>
                   <Badge variant="outline">Standard</Badge>
@@ -186,9 +186,9 @@ export default function ProfilePage() {
         {/* Account Activity */}
         <Card>
           <CardHeader>
-            <CardTitle>Recent Activity</CardTitle>
+            <CardTitle>Attività Recenti</CardTitle>
             <CardDescription>
-              Your recent account activity and sessions
+              Le tue attività e sessioni recenti
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -197,15 +197,15 @@ export default function ProfilePage() {
                 <div className="flex items-center space-x-3">
                   <div className="h-2 w-2 bg-green-500 rounded-full"></div>
                   <div>
-                    <p className="font-medium">Current Session</p>
-                    <p className="text-sm text-muted-foreground">Active now</p>
+                    <p className="font-medium">Sessione Corrente</p>
+                    <p className="text-sm text-muted-foreground">Attiva ora</p>
                   </div>
                 </div>
                 <Badge
                   variant="outline"
                   className="text-green-600 border-green-600"
                 >
-                  Active
+                  Attiva
                 </Badge>
               </div>
             </div>
@@ -215,9 +215,9 @@ export default function ProfilePage() {
         {/* Quick Actions */}
         <Card>
           <CardHeader>
-            <CardTitle>Quick Actions</CardTitle>
+            <CardTitle>Azioni Rapide</CardTitle>
             <CardDescription>
-              Manage your account settings and preferences
+              Gestisci le impostazioni e le preferenze del tuo account
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -229,9 +229,9 @@ export default function ProfilePage() {
               >
                 <User className="h-4 w-4 mr-2" />
                 <div className="text-left">
-                  <div className="font-medium">Edit Profile</div>
+                  <div className="font-medium">Modifica Profilo</div>
                   <div className="text-xs text-muted-foreground">
-                    Update your information
+                    Aggiorna le tue informazioni
                   </div>
                 </div>
               </Button>
@@ -242,9 +242,9 @@ export default function ProfilePage() {
               >
                 <Shield className="h-4 w-4 mr-2" />
                 <div className="text-left">
-                  <div className="font-medium">Security Settings</div>
+                  <div className="font-medium">Impostazioni Sicurezza</div>
                   <div className="text-xs text-muted-foreground">
-                    Manage security options
+                    Gestisci le opzioni di sicurezza
                   </div>
                 </div>
               </Button>
@@ -255,9 +255,9 @@ export default function ProfilePage() {
               >
                 <Mail className="h-4 w-4 mr-2" />
                 <div className="text-left">
-                  <div className="font-medium">Email Preferences</div>
+                  <div className="font-medium">Preferenze Email</div>
                   <div className="text-xs text-muted-foreground">
-                    Configure notifications
+                    Configura le notifiche
                   </div>
                 </div>
               </Button>
@@ -270,19 +270,18 @@ export default function ProfilePage() {
       <Dialog open={editProfileOpen} onOpenChange={setEditProfileOpen}>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Edit Profile</DialogTitle>
+            <DialogTitle>Modifica Profilo</DialogTitle>
             <DialogDescription>
-              Update your profile information. Changes will be saved to your
-              account.
+              Aggiorna le informazioni del tuo profilo. Le modifiche verranno salvate nel tuo account.
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleEditProfileSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="name">Full Name</Label>
+              <Label htmlFor="name">Nome Completo</Label>
               <Input
                 id="name"
                 defaultValue={user.name || ""}
-                placeholder="Enter your name"
+                placeholder="Inserisci il tuo nome"
               />
             </div>
             <div className="space-y-2">
@@ -295,7 +294,7 @@ export default function ProfilePage() {
                 className="bg-muted"
               />
               <p className="text-xs text-muted-foreground">
-                Email cannot be changed for OAuth accounts
+                L'email non può essere modificata per gli account OAuth
               </p>
             </div>
             <div className="flex justify-end gap-2 pt-4">
@@ -304,9 +303,9 @@ export default function ProfilePage() {
                 variant="outline"
                 onClick={() => setEditProfileOpen(false)}
               >
-                Cancel
+                Annulla
               </Button>
-              <Button type="submit">Save Changes</Button>
+              <Button type="submit">Salva Modifiche</Button>
             </div>
           </form>
         </DialogContent>
@@ -316,9 +315,9 @@ export default function ProfilePage() {
       <Dialog open={securityOpen} onOpenChange={setSecurityOpen}>
         <DialogContent className="sm:max-w-[500px]">
           <DialogHeader>
-            <DialogTitle>Security Settings</DialogTitle>
+            <DialogTitle>Impostazioni Sicurezza</DialogTitle>
             <DialogDescription>
-              Manage your account security and authentication options.
+              Gestisci la sicurezza e le opzioni di autenticazione del tuo account.
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4">
@@ -329,13 +328,13 @@ export default function ProfilePage() {
                   <p className="font-medium">Password</p>
                   <p className="text-sm text-muted-foreground">
                     {user.email?.includes("@gmail")
-                      ? "Managed by Google"
-                      : "Set a password for your account"}
+                      ? "Gestita da Google"
+                      : "Imposta una password per il tuo account"}
                   </p>
                 </div>
               </div>
               <Badge variant="outline">
-                {user.email?.includes("@gmail") ? "OAuth" : "Not Set"}
+                {user.email?.includes("@gmail") ? "OAuth" : "Non impostata"}
               </Badge>
             </div>
 
@@ -343,14 +342,14 @@ export default function ProfilePage() {
               <div className="flex items-center gap-3">
                 <Smartphone className="h-5 w-5 text-muted-foreground" />
                 <div>
-                  <p className="font-medium">Two-Factor Authentication</p>
+                  <p className="font-medium">Autenticazione a Due Fattori</p>
                   <p className="text-sm text-muted-foreground">
-                    Add an extra layer of security
+                    Aggiungi un ulteriore livello di sicurezza
                   </p>
                 </div>
               </div>
               <Button variant="outline" size="sm" disabled>
-                Coming Soon
+                Prossimamente
               </Button>
             </div>
 
@@ -358,18 +357,18 @@ export default function ProfilePage() {
               <div className="flex items-center gap-3">
                 <Shield className="h-5 w-5 text-muted-foreground" />
                 <div>
-                  <p className="font-medium">Active Sessions</p>
+                  <p className="font-medium">Sessioni Attive</p>
                   <p className="text-sm text-muted-foreground">
-                    Manage devices logged into your account
+                    Gestisci i dispositivi connessi al tuo account
                   </p>
                 </div>
               </div>
-              <Badge variant="default">1 Active</Badge>
+              <Badge variant="default">1 Attiva</Badge>
             </div>
           </div>
           <div className="flex justify-end pt-4">
             <Button variant="outline" onClick={() => setSecurityOpen(false)}>
-              Close
+              Chiudi
             </Button>
           </div>
         </DialogContent>
@@ -379,34 +378,34 @@ export default function ProfilePage() {
       <Dialog open={emailPrefsOpen} onOpenChange={setEmailPrefsOpen}>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Email Preferences</DialogTitle>
+            <DialogTitle>Preferenze Email</DialogTitle>
             <DialogDescription>
-              Configure your email notification settings.
+              Configura le impostazioni delle notifiche email.
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4">
             <div className="flex items-center justify-between p-4 border rounded-lg">
               <div>
-                <p className="font-medium">Marketing Emails</p>
+                <p className="font-medium">Email Marketing</p>
                 <p className="text-sm text-muted-foreground">
-                  Product updates and announcements
+                  Aggiornamenti e annunci sui prodotti
                 </p>
               </div>
-              <Badge variant="secondary">Coming Soon</Badge>
+              <Badge variant="secondary">Prossimamente</Badge>
             </div>
             <div className="flex items-center justify-between p-4 border rounded-lg">
               <div>
-                <p className="font-medium">Security Alerts</p>
+                <p className="font-medium">Avvisi di Sicurezza</p>
                 <p className="text-sm text-muted-foreground">
-                  Important security notifications
+                  Notifiche di sicurezza importanti
                 </p>
               </div>
-              <Badge variant="default">Always On</Badge>
+              <Badge variant="default">Sempre Attivo</Badge>
             </div>
           </div>
           <div className="flex justify-end pt-4">
             <Button variant="outline" onClick={() => setEmailPrefsOpen(false)}>
-              Close
+              Chiudi
             </Button>
           </div>
         </DialogContent>

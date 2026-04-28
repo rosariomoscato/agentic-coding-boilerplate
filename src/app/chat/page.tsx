@@ -155,10 +155,10 @@ function CopyButton({ text }: { text: string }) {
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
-      toast.success("Copied to clipboard");
+      toast.success("Copiato negli appunti");
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      toast.error("Failed to copy");
+      toast.error("Copia non riuscita");
     }
   };
 
@@ -166,7 +166,7 @@ function CopyButton({ text }: { text: string }) {
     <button
       onClick={handleCopy}
       className="p-1 hover:bg-muted rounded transition-colors"
-      title="Copy to clipboard"
+      title="Copia negli appunti"
     >
       {copied ? (
         <Check className="h-3.5 w-3.5 text-green-500" />
@@ -181,7 +181,7 @@ function ThinkingIndicator() {
   return (
     <div className="flex items-center gap-2 p-3 rounded-lg bg-muted max-w-[80%]">
       <Loader2 className="h-4 w-4 animate-spin" />
-      <span className="text-sm text-muted-foreground">AI is thinking...</span>
+      <span className="text-sm text-muted-foreground">L'AI sta pensando...</span>
     </div>
   );
 }
@@ -192,7 +192,7 @@ export default function ChatPage() {
   const { data: session, isPending } = useSession();
   const { messages, sendMessage, status, error, setMessages } = useChat({
     onError: (err) => {
-      toast.error(err.message || "Failed to send message");
+      toast.error(err.message || "Invio del messaggio non riuscito");
     },
   });
   const [input, setInput] = useState("");
@@ -224,11 +224,11 @@ export default function ChatPage() {
   const clearMessages = () => {
     setMessages([]);
     localStorage.removeItem(STORAGE_KEY);
-    toast.success("Chat cleared");
+    toast.success("Chat cancellata");
   };
 
   if (isPending) {
-    return <div className="container mx-auto px-4 py-12">Loading...</div>;
+    return <div className="container mx-auto px-4 py-12">Caricamento...</div>;
   }
 
   if (!session) {
@@ -247,14 +247,14 @@ export default function ChatPage() {
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-between items-center mb-6 pb-4 border-b">
-          <h1 className="text-2xl font-bold">AI Chat</h1>
+          <h1 className="text-2xl font-bold">Chat AI</h1>
           <div className="flex items-center gap-4">
             <span className="text-sm text-muted-foreground">
-              Welcome, {session.user.name}!
+              Benvenuto, {session.user.name}!
             </span>
             {messages.length > 0 && (
               <Button variant="ghost" size="sm" onClick={clearMessages}>
-                Clear chat
+                Cancella chat
               </Button>
             )}
           </div>
@@ -263,7 +263,7 @@ export default function ChatPage() {
         {error && (
           <div className="mb-4 p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
             <p className="text-sm text-destructive">
-              Error: {error.message || "Something went wrong"}
+              Errore: {error.message || "Qualcosa è andato storto"}
             </p>
           </div>
         )}
@@ -271,7 +271,7 @@ export default function ChatPage() {
         <div className="min-h-[50vh] overflow-y-auto space-y-4 mb-4">
           {messages.length === 0 && (
             <div className="text-center text-muted-foreground py-12">
-              Start a conversation with AI
+              Inizia una conversazione con l'AI
             </div>
           )}
           {messages.map((message) => {
@@ -293,7 +293,7 @@ export default function ChatPage() {
                 <div className="flex items-center justify-between mb-1">
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-medium">
-                      {message.role === "user" ? "You" : "AI"}
+                      {message.role === "user" ? "Tu" : "AI"}
                     </span>
                     {timestamp && (
                       <span className="text-xs opacity-60">{timestamp}</span>
@@ -327,7 +327,7 @@ export default function ChatPage() {
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Type your message..."
+            placeholder="Scrivi il tuo messaggio..."
             className="flex-1 p-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring"
             disabled={isStreaming}
           />
@@ -335,10 +335,10 @@ export default function ChatPage() {
             {isStreaming ? (
               <>
                 <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                Sending
+                Invio in corso
               </>
             ) : (
-              "Send"
+              "Invia"
             )}
           </Button>
         </form>

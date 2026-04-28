@@ -17,7 +17,7 @@ export function SignInButton() {
   const [isPending, setIsPending] = useState(false)
 
   if (sessionPending) {
-    return <Button disabled>Loading...</Button>
+    return <Button disabled>Caricamento...</Button>
   }
 
   if (session) {
@@ -37,13 +37,13 @@ export function SignInButton() {
       })
 
       if (result.error) {
-        setError(result.error.message || "Failed to sign in")
+        setError(result.error.message || "Accesso non riuscito")
       } else {
         router.push("/dashboard")
         router.refresh()
       }
     } catch {
-      setError("An unexpected error occurred")
+      setError("Si è verificato un errore imprevisto")
     } finally {
       setIsPending(false)
     }
@@ -56,7 +56,7 @@ export function SignInButton() {
         <Input
           id="email"
           type="email"
-          placeholder="you@example.com"
+          placeholder="tu@esempio.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -68,7 +68,7 @@ export function SignInButton() {
         <Input
           id="password"
           type="password"
-          placeholder="Your password"
+          placeholder="La tua password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
@@ -79,17 +79,17 @@ export function SignInButton() {
         <p className="text-sm text-destructive">{error}</p>
       )}
       <Button type="submit" className="w-full" disabled={isPending}>
-        {isPending ? "Signing in..." : "Sign in"}
+        {isPending ? "Accesso in corso..." : "Accedi"}
       </Button>
       <div className="text-center text-sm text-muted-foreground">
         <Link href="/forgot-password" className="hover:underline">
-          Forgot password?
+          Password dimenticata?
         </Link>
       </div>
       <div className="text-center text-sm text-muted-foreground">
-        Don&apos;t have an account?{" "}
+        Non hai un account?{" "}
         <Link href="/register" className="text-primary hover:underline">
-          Sign up
+          Registrati
         </Link>
       </div>
     </form>

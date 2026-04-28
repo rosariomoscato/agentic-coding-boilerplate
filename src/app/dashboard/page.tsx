@@ -14,7 +14,7 @@ export default function DashboardPage() {
   if (isPending) {
     return (
       <div className="flex justify-center items-center h-screen">
-        Loading...
+        Caricamento...
       </div>
     );
   }
@@ -25,9 +25,9 @@ export default function DashboardPage() {
         <div className="max-w-3xl mx-auto text-center">
           <div className="mb-8">
             <Lock className="w-16 h-16 mx-auto mb-4 text-muted-foreground" />
-            <h1 className="text-2xl font-bold mb-2">Protected Page</h1>
+            <h1 className="text-2xl font-bold mb-2">Pagina Protetta</h1>
             <p className="text-muted-foreground mb-6">
-              You need to sign in to access the dashboard
+              Devi accedere per visualizzare la dashboard
             </p>
           </div>
           <UserProfile />
@@ -44,29 +44,29 @@ export default function DashboardPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="p-6 border border-border rounded-lg">
-          <h2 className="text-xl font-semibold mb-2">AI Chat</h2>
+          <h2 className="text-xl font-semibold mb-2">Chat AI</h2>
           <p className="text-muted-foreground mb-4">
-            Start a conversation with AI using the Vercel AI SDK
+            Inizia una conversazione con l'AI usando Vercel AI SDK
           </p>
           {(diagnosticsLoading || !isAiReady) ? (
             <Button disabled={true}>
-              Go to Chat
+              Vai alla Chat
             </Button>
           ) : (
             <Button asChild>
-              <Link href="/chat">Go to Chat</Link>
+              <Link href="/chat">Vai alla Chat</Link>
             </Button>
           )}
         </div>
 
         <div className="p-6 border border-border rounded-lg">
-          <h2 className="text-xl font-semibold mb-2">Profile</h2>
+          <h2 className="text-xl font-semibold mb-2">Profilo</h2>
           <p className="text-muted-foreground mb-4">
-            Manage your account settings and preferences
+            Gestisci le impostazioni e le preferenze del tuo account
           </p>
           <div className="space-y-2">
             <p>
-              <strong>Name:</strong> {session.user.name}
+              <strong>Nome:</strong> {session.user.name}
             </p>
             <p>
               <strong>Email:</strong> {session.user.email}

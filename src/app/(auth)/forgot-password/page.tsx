@@ -21,9 +21,9 @@ export default async function ForgotPasswordPage() {
     <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <CardTitle>Forgot password</CardTitle>
+          <CardTitle>Password dimenticata</CardTitle>
           <CardDescription>
-            Enter your email address and we&apos;ll send you a reset link
+            Inserisci il tuo indirizzo email e ti invieremo un link di reimpostazione
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col items-center">

@@ -25,12 +25,12 @@ export function ForgotPasswordForm() {
       })
 
       if (result.error) {
-        setError(result.error.message || "Failed to send reset email")
+        setError(result.error.message || "Invio email di reset non riuscito")
       } else {
         setSuccess(true)
       }
     } catch {
-      setError("An unexpected error occurred")
+      setError("Si è verificato un errore imprevisto")
     } finally {
       setIsPending(false)
     }
@@ -40,12 +40,12 @@ export function ForgotPasswordForm() {
     return (
       <div className="space-y-4 w-full max-w-sm text-center">
         <p className="text-sm text-muted-foreground">
-          If an account exists with that email, a password reset link has been sent.
-          Check your terminal for the reset URL.
+          Se esiste un account con questa email, è stato inviato un link di reset password.
+          Controlla il terminale per l'URL di reset.
         </p>
         <Link href="/login">
           <Button variant="outline" className="w-full">
-            Back to sign in
+            Torna all'accesso
           </Button>
         </Link>
       </div>
@@ -59,7 +59,7 @@ export function ForgotPasswordForm() {
         <Input
           id="email"
           type="email"
-          placeholder="you@example.com"
+          placeholder="tu@esempio.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -70,12 +70,12 @@ export function ForgotPasswordForm() {
         <p className="text-sm text-destructive">{error}</p>
       )}
       <Button type="submit" className="w-full" disabled={isPending}>
-        {isPending ? "Sending..." : "Send reset link"}
+        {isPending ? "Invio in corso..." : "Invia link di reset"}
       </Button>
       <div className="text-center text-sm text-muted-foreground">
-        Remember your password?{" "}
+        Ti ricordi la password?{" "}
         <Link href="/login" className="text-primary hover:underline">
-          Sign in
+          Accedi
         </Link>
       </div>
     </form>

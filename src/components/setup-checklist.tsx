@@ -59,7 +59,7 @@ export function SetupChecklist() {
       const json = (await res.json()) as DiagnosticsResponse;
       setData(json);
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Failed to load diagnostics");
+      setError(e instanceof Error ? e.message : "Caricamento diagnostica non riuscito");
     } finally {
       setLoading(false);
     }
@@ -79,14 +79,14 @@ export function SetupChecklist() {
         !!data?.env.GOOGLE_CLIENT_ID &&
         !!data?.env.GOOGLE_CLIENT_SECRET,
       detail:
-        "Requires POSTGRES_URL, BETTER_AUTH_SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET",
+        "Richiede POSTGRES_URL, BETTER_AUTH_SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET",
     },
     {
       key: "db",
       label: "Database connected & schema",
       ok: !!data?.database.connected && !!data?.database.schemaApplied,
       detail: data?.database.error
-        ? `Error: ${data.database.error}`
+        ? `Errore: ${data.database.error}`
         : undefined,
     },
     {
@@ -95,7 +95,7 @@ export function SetupChecklist() {
       ok: !!data?.auth.configured,
       detail:
         data?.auth.routeResponding === false
-          ? "Auth route not responding"
+          ? "Route di autenticazione non rispondente"
           : undefined,
     },
     {
@@ -103,7 +103,7 @@ export function SetupChecklist() {
       label: "AI integration (optional)",
       ok: !!data?.ai.configured,
       detail: !data?.ai.configured
-        ? "Set OPENROUTER_API_KEY for AI chat"
+        ? "Imposta OPENROUTER_API_KEY per la chat AI"
         : undefined,
     },
     {
@@ -112,8 +112,8 @@ export function SetupChecklist() {
       ok: true, // Always considered "ok" since local storage works
       detail: data?.storage
         ? data.storage.type === "remote"
-          ? "Using Vercel Blob storage"
-          : "Using local storage (public/uploads/)"
+          ? "Utilizzando storage Vercel Blob"
+          : "Utilizzando storage locale (public/uploads/)"
         : undefined,
     },
   ] as const;
@@ -124,13 +124,13 @@ export function SetupChecklist() {
     <div className="p-6 border rounded-lg text-left">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h3 className="font-semibold">Setup checklist</h3>
+          <h3 className="font-semibold">Elenco di configurazione</h3>
           <p className="text-sm text-muted-foreground">
-            {completed}/{steps.length} completed
+            {completed}/{steps.length} completati
           </p>
         </div>
         <Button size="sm" onClick={load} disabled={loading}>
-          {loading ? "Checking..." : "Re-check"}
+          {loading ? "Controllo..." : "Ricontrolla"}
         </Button>
       </div>
 
@@ -154,7 +154,7 @@ export function SetupChecklist() {
 
       {data ? (
         <div className="mt-4 text-xs text-muted-foreground">
-          Last checked: {new Date(data.timestamp).toLocaleString()}
+          Ultimo controllo: {new Date(data.timestamp).toLocaleString()}
         </div>
       ) : null}
     </div>

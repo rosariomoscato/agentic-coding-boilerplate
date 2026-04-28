@@ -138,15 +138,14 @@ export function StarterPromptModal() {
       <DialogTrigger asChild>
         <Button size="sm" className="w-full">
           <Copy className="w-4 h-4 mr-2" />
-          Get AI Starter Prompt
+          Ottieni Prompt Iniziale AI
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-2xl">
         <DialogHeader>
-          <DialogTitle>Generate AI Starter Prompt</DialogTitle>
+          <DialogTitle>Genera Prompt Iniziale AI</DialogTitle>
           <DialogDescription>
-            Create a comprehensive prompt to help AI agents create your project
-            for you.
+            Crea un prompt completo per aiutare gli agenti AI a creare il tuo progetto.
           </DialogDescription>
         </DialogHeader>
 
@@ -156,18 +155,17 @@ export function StarterPromptModal() {
               htmlFor="project-description"
               className="text-sm font-medium mb-2 block"
             >
-              Describe your project (optional)
+              Descrivi il tuo progetto (opzionale)
             </label>
             <textarea
               id="project-description"
-              placeholder="e.g., A task management app for teams with real-time collaboration, project timelines, and AI-powered task prioritization..."
+              placeholder="es., Un'app di gestione attività per team con collaborazione in tempo reale, tempistiche progetto e prioritizzazione attività basata su AI..."
               value={projectDescription}
               onChange={(e) => setProjectDescription(e.target.value)}
               className="w-full h-24 px-3 py-2 border rounded-md resize-none text-sm"
             />
             <p className="text-xs text-muted-foreground mt-1">
-              Optional: Add details about your project to get a more tailored
-              prompt
+              Opzionale: Aggiungi dettagli sul tuo progetto per ottenere un prompt più personalizzato
             </p>
           </div>
 
@@ -176,24 +174,23 @@ export function StarterPromptModal() {
               {copied ? (
                 <>
                   <Check className="w-4 h-4 mr-2" />
-                  Copied!
+                  Copiato!
                 </>
               ) : (
                 <>
                   <Copy className="w-4 h-4 mr-2" />
-                  Copy Starter Prompt
+                  Copia Prompt Iniziale
                 </>
               )}
             </Button>
             <Button variant="outline" onClick={() => setIsOpen(false)}>
-              Cancel
+              Annulla
             </Button>
           </div>
 
           <div className="text-xs text-muted-foreground border-t pt-3">
-            <strong>How to use:</strong> Copy this prompt and paste it into
-            Claude Code, Cursor, or any AI coding assistant to get started with
-            your project.
+            <strong>Come usare:</strong> Copia questo prompt e incollalo in
+            Claude Code, Cursor, o qualsiasi assistente di coding AI per iniziare con il tuo progetto.
           </div>
         </div>
       </DialogContent>

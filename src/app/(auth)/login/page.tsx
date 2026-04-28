@@ -27,13 +27,13 @@ export default async function LoginPage({
     <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <CardTitle>Welcome back</CardTitle>
-          <CardDescription>Sign in to your account</CardDescription>
+          <CardTitle>Bentornato</CardTitle>
+          <CardDescription>Accedi al tuo account</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col items-center">
           {reset === "success" && (
             <p className="mb-4 text-sm text-green-600 dark:text-green-400">
-              Password reset successfully. Please sign in with your new password.
+              Password reimpostata con successo. Accedi con la tua nuova password.
             </p>
           )}
           <SignInButton />

@@ -22,11 +22,11 @@ export default async function ResetPasswordPage() {
     <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <CardTitle>Reset password</CardTitle>
-          <CardDescription>Enter your new password below</CardDescription>
+          <CardTitle>Reimposta password</CardTitle>
+          <CardDescription>Inserisci la tua nuova password qui sotto</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col items-center">
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div>Caricamento...</div>}>
             <ResetPasswordForm />
           </Suspense>
         </CardContent>

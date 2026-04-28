@@ -7,7 +7,7 @@ export function SiteFooter() {
         <div className="flex flex-col items-center space-y-3">
           <GitHubStars repo="rosariomoscato/agentic-coding-boilerplate" />
           <p>
-            Built using Agentic Coding Boilerplate
+            Creato con Agentic Coding Boilerplate
           </p>
         </div>
       </div>
