@@ -37,6 +37,11 @@ cd my-app
 
 Questo creerà una copia pulita del boilerplate nella cartella `my-app`.
 
+> **Nota:** Se stai reinstallando il boilerplate in una directory esistente, usa il flag `--force`:
+> ```bash
+> npx degit rosariomoscato/agentic-coding-boilerplate my-app --force
+> ```
+
 ### Passaggi Post-Installazione
 
 Dopo aver scaricato il boilerplate, segui questi passaggi:
@@ -78,7 +83,7 @@ BLOB_READ_WRITE_TOKEN=""
 **2. Installa le dipendenze**
 
 ```bash
-pnpm install
+npm install
 ```
 
 **3. Avvia il database**
@@ -90,13 +95,13 @@ docker compose up -d
 **4. Esegui le migrazioni del database**
 
 ```bash
-pnpm run db:migrate
+npm run db:migrate
 ```
 
 **5. Avvia il server di sviluppo**
 
 ```bash
-pnpm run dev
+npm run dev
 ```
 
 La tua applicazione sarà disponibile su [http://localhost:3000](http://localhost:3000)
@@ -181,6 +186,10 @@ npm run dev          # Avvia server di sviluppo con Turbopack
 npm run build        # Build per produzione
 npm run start        # Avvia server di produzione
 npm run lint         # Esegui ESLint
+npm run typecheck    # Esegui controllo tipi TypeScript
+npm run check        # Esegui lint e typecheck
+npm run format       # Formatta il codice con Prettier
+npm run format:check # Verifica formattazione codice
 npm run db:generate  # Genera migrazioni database
 npm run db:migrate   # Esegui migrazioni database
 npm run db:push      # Invia modifiche schema al database
