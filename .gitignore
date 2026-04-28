@@ -66,5 +66,8 @@ agents/
 .gitconfig
 .ripgreprc
 
+# Removed CLI folder
+create-agentic-boiler/
+
 # Progress notes
 claude-progress.txt
