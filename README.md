@@ -1,6 +1,6 @@
 # Agentic Coding Boilerplate
 
-Un boilerplate completo per coding agentic con autenticazione, database PostgreSQL, funzionalità di chat AI e componenti UI moderni - perfetto per costruire applicazioni basate sull'intelligenza artificiale e agenti autonomi.
+Un boilerplate completo per agentic coding con autenticazione, database PostgreSQL, funzionalità di chat AI e componenti UI moderni - perfetto per costruire applicazioni basate sull'intelligenza artificiale e agenti autonomi.
 
 ## 🚀 Funzionalità
 
@@ -24,7 +24,7 @@ Prima di iniziare, assicurati di avere installato sul tuo computer:
 
 - **Node.js**: Versione 18.0 o superiore (<a href="https://nodejs.org/" target="_blank">Scarica qui</a>)
 - **Git**: Per clonare il repository (<a href="https://git-scm.com/" target="_blank">Scarica qui</a>)
-- **PostgreSQL**: Installato localmente o accesso a un servizio hostato come Vercel Postgres
+- **PostgreSQL**: Installato localmente o accedi a un servizio hostato come Vercel Postgres
 
 ## 🛠️ Installazione Rapida
 
