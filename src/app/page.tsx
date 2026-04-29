@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { Shield, Database, Bot, Palette, ArrowRight, Terminal, Cpu, Zap } from "lucide-react";
 import { SetupChecklist } from "@/components/setup-checklist";
-import { StarterPromptModal } from "@/components/starter-prompt-modal";
 import { Button } from "@/components/ui/button";
 import { useDiagnostics } from "@/hooks/use-diagnostics";
 
@@ -168,109 +167,6 @@ export default function Home() {
             <span className="tag-terminal">Setup</span>
           </div>
           <SetupChecklist />
-        </div>
-      </section>
-
-      {/* Next Steps */}
-      <section className="px-4 pb-20">
-        <div className="container mx-auto max-w-5xl">
-          <div className="flex items-center gap-3 mb-8">
-            <h2 className="text-2xl font-bold uppercase tracking-wider font-[family-name:var(--font-display)]">
-              Prossimi Passi
-            </h2>
-            <div className="flex-1 h-[2px] bg-border" />
-            <span className="tag-terminal">Guide</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="brutal-card p-5 space-y-3 animate-brutal-in stagger-1">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="w-6 h-6 border-2 border-brutal-border bg-neon text-primary-foreground flex items-center justify-center text-xs font-bold font-[family-name:var(--font-display)]">1</span>
-                <h4 className="font-bold uppercase tracking-wider font-[family-name:var(--font-display)] text-sm">
-                  Configura le variabili
-                </h4>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Copia <code className="px-1.5 py-0.5 bg-surface border border-brutal-border text-neon text-xs font-[family-name:var(--font-display)]">.env.example</code> in <code className="px-1.5 py-0.5 bg-surface border border-brutal-border text-neon text-xs font-[family-name:var(--font-display)]">.env.local</code>
-              </p>
-              <ul className="text-xs text-muted-foreground space-y-1.5 font-[family-name:var(--font-display)] uppercase tracking-wider">
-                <li className="flex items-center gap-2">
-                  <span className="w-1 h-1 bg-neon" />
-                  POSTGRES_URL
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1 h-1 bg-neon" />
-                  OPENROUTER_API_KEY
-                </li>
-              </ul>
-            </div>
-
-            <div className="brutal-card p-5 space-y-3 animate-brutal-in stagger-2">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="w-6 h-6 border-2 border-brutal-border bg-neon text-primary-foreground flex items-center justify-center text-xs font-bold font-[family-name:var(--font-display)]">2</span>
-                <h4 className="font-bold uppercase tracking-wider font-[family-name:var(--font-display)] text-sm">
-                  Configura il database
-                </h4>
-              </div>
-              <p className="text-sm text-muted-foreground">Esegui le migrazioni del database:</p>
-              <div className="space-y-2">
-                <code className="block text-xs bg-surface border-2 border-brutal-border px-3 py-2 font-[family-name:var(--font-display)] text-neon">
-                  $ npm run db:generate
-                </code>
-                <code className="block text-xs bg-surface border-2 border-brutal-border px-3 py-2 font-[family-name:var(--font-display)] text-neon">
-                  $ npm run db:migrate
-                </code>
-              </div>
-            </div>
-
-            <div className="brutal-card p-5 space-y-3 animate-brutal-in stagger-3">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="w-6 h-6 border-2 border-brutal-border bg-neon text-primary-foreground flex items-center justify-center text-xs font-bold font-[family-name:var(--font-display)]">3</span>
-                <h4 className="font-bold uppercase tracking-wider font-[family-name:var(--font-display)] text-sm">
-                  Prova le funzionalit&agrave;
-                </h4>
-              </div>
-              <div className="space-y-2">
-                {loading || !isAuthReady ? (
-                  <Button size="sm" className="w-full" disabled>
-                    Dashboard
-                  </Button>
-                ) : (
-                  <Button asChild size="sm" className="w-full">
-                    <Link href="/dashboard">
-                      Vai alla Dashboard
-                      <ArrowRight className="h-3 w-3 ml-1" />
-                    </Link>
-                  </Button>
-                )}
-                {loading || !isAiReady ? (
-                  <Button variant="neon" size="sm" className="w-full" disabled>
-                    Chat AI
-                  </Button>
-                ) : (
-                  <Button asChild variant="neon" size="sm" className="w-full">
-                    <Link href="/chat">
-                      Prova Chat AI
-                      <ArrowRight className="h-3 w-3 ml-1" />
-                    </Link>
-                  </Button>
-                )}
-              </div>
-            </div>
-
-            <div className="brutal-card p-5 space-y-3 animate-brutal-in stagger-4">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="w-6 h-6 border-2 border-brutal-border bg-neon text-primary-foreground flex items-center justify-center text-xs font-bold font-[family-name:var(--font-display)]">4</span>
-                <h4 className="font-bold uppercase tracking-wider font-[family-name:var(--font-display)] text-sm">
-                  Inizia a costruire
-                </h4>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Personalizza i componenti, aggiungi le tue pagine e costruisci la tua applicazione.
-              </p>
-              <StarterPromptModal />
-            </div>
-          </div>
         </div>
       </section>
     </main>
