@@ -1,13 +1,6 @@
 import { headers } from "next/headers"
 import { redirect } from "next/navigation"
 import { SignUpForm } from "@/components/auth/sign-up-form"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
 import { auth } from "@/lib/auth"
 
 export default async function RegisterPage() {
@@ -18,16 +11,23 @@ export default async function RegisterPage() {
   }
 
   return (
-    <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="text-center">
-          <CardTitle>Crea un account</CardTitle>
-          <CardDescription>Inizia con il tuo nuovo account</CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-col items-center">
-          <SignUpForm />
-        </CardContent>
-      </Card>
+    <div className="w-full max-w-md">
+      <div className="brutal-card p-8">
+        <div className="text-center space-y-2 mb-6">
+          <h1 className="text-2xl font-bold uppercase tracking-wider font-[family-name:var(--font-display)]">
+            Crea un account
+          </h1>
+          <p className="text-sm text-muted-foreground font-[family-name:var(--font-display)] uppercase tracking-wider">
+            Inizia con il tuo nuovo account
+          </p>
+          <div className="flex items-center justify-center gap-2 pt-2">
+            <span className="h-[2px] w-8 bg-border" />
+            <span className="w-2 h-2 border-2 border-neon rotate-45" />
+            <span className="h-[2px] w-8 bg-border" />
+          </div>
+        </div>
+        <SignUpForm />
+      </div>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CheckCircle2, XCircle } from "lucide-react";
+import { CheckCircle2, XCircle, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type DiagnosticsResponse = {
@@ -35,12 +35,12 @@ type DiagnosticsResponse = {
 
 function StatusIcon({ ok }: { ok: boolean }) {
   return ok ? (
-    <div title="ok">
-      <CheckCircle2 className="h-4 w-4 text-green-600" aria-label="ok" />
+    <div className="w-5 h-5 border border-neon bg-neon/10 flex items-center justify-center">
+      <CheckCircle2 className="h-3 w-3 text-neon" aria-label="ok" />
     </div>
   ) : (
-    <div title="not ok">
-      <XCircle className="h-4 w-4 text-red-600" aria-label="not-ok" />
+    <div className="w-5 h-5 border border-destructive bg-destructive/10 flex items-center justify-center">
+      <XCircle className="h-3 w-3 text-destructive" aria-label="not-ok" />
     </div>
   );
 }
@@ -79,11 +79,11 @@ export function SetupChecklist() {
         !!data?.env.GOOGLE_CLIENT_ID &&
         !!data?.env.GOOGLE_CLIENT_SECRET,
       detail:
-        "Richiede POSTGRES_URL, BETTER_AUTH_SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET",
+        "POSTGRES_URL, BETTER_AUTH_SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET",
     },
     {
       key: "db",
-      label: "Database connesso e schema",
+      label: "Database connesso",
       ok: !!data?.database.connected && !!data?.database.schemaApplied,
       detail: data?.database.error
         ? `Errore: ${data.database.error}`
@@ -91,29 +91,29 @@ export function SetupChecklist() {
     },
     {
       key: "auth",
-      label: "Autenticazione configurata",
+      label: "Autenticazione",
       ok: !!data?.auth.configured,
       detail:
         data?.auth.routeResponding === false
-          ? "Route di autenticazione non rispondente"
+          ? "Route non rispondente"
           : undefined,
     },
     {
       key: "ai",
-      label: "Integrazione AI (opzionale)",
+      label: "Integrazione AI",
       ok: !!data?.ai.configured,
       detail: !data?.ai.configured
-        ? "Imposta OPENROUTER_API_KEY per la chat AI"
+        ? "Imposta OPENROUTER_API_KEY"
         : undefined,
     },
     {
       key: "storage",
-      label: "Storage file (opzionale)",
-      ok: true, // Always considered "ok" since local storage works
+      label: "Storage file",
+      ok: true,
       detail: data?.storage
         ? data.storage.type === "remote"
-          ? "Utilizzando storage Vercel Blob"
-          : "Utilizzando storage locale (public/uploads/)"
+          ? "Vercel Blob"
+          : "Storage locale"
         : undefined,
     },
   ] as const;
@@ -121,31 +121,43 @@ export function SetupChecklist() {
   const completed = steps.filter((s) => s.ok).length;
 
   return (
-    <div className="p-6 border rounded-lg text-left">
-      <div className="flex items-center justify-between mb-4">
+    <div className="brutal-card p-6">
+      <div className="flex items-center justify-between mb-5">
         <div>
-          <h3 className="font-semibold">Elenco di configurazione</h3>
-          <p className="text-sm text-muted-foreground">
+          <h3 className="font-bold uppercase tracking-wider font-[family-name:var(--font-display)] text-sm">
+            Elenco di configurazione
+          </h3>
+          <p className="text-xs text-muted-foreground font-[family-name:var(--font-display)] uppercase tracking-wider mt-1">
             {completed}/{steps.length} completati
           </p>
         </div>
         <Button size="sm" onClick={load} disabled={loading}>
-          {loading ? "Controllo..." : "Ricontrolla"}
+          <RefreshCw className={`h-3.5 w-3.5 mr-1.5 ${loading ? "animate-spin" : ""}`} />
+          Ricontrolla
         </Button>
       </div>
 
-      {error ? <div className="text-sm text-destructive">{error}</div> : null}
+      {error ? (
+        <div className="p-3 border-2 border-destructive bg-destructive/5 text-destructive text-xs font-[family-name:var(--font-display)] uppercase tracking-wider mb-4">
+          {error}
+        </div>
+      ) : null}
 
-      <ul className="space-y-2">
+      <ul className="space-y-3">
         {steps.map((s) => (
-          <li key={s.key} className="flex items-start gap-2">
+          <li key={s.key} className="flex items-start gap-3">
             <div className="mt-0.5">
               <StatusIcon ok={Boolean(s.ok)} />
             </div>
-            <div>
-              <div className="font-medium">{s.label}</div>
+            <div className="flex-1">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">{s.label}</span>
+                {s.ok && (
+                  <span className="text-xs text-neon font-[family-name:var(--font-display)] uppercase tracking-wider">OK</span>
+                )}
+              </div>
               {s.detail ? (
-                <div className="text-sm text-muted-foreground">{s.detail}</div>
+                <p className="text-xs text-muted-foreground mt-0.5">{s.detail}</p>
               ) : null}
             </div>
           </li>
@@ -153,8 +165,8 @@ export function SetupChecklist() {
       </ul>
 
       {data ? (
-        <div className="mt-4 text-xs text-muted-foreground">
-          Ultimo controllo: {new Date(data.timestamp).toLocaleString()}
+        <div className="mt-4 pt-4 border-t border-brutal-border text-xs text-muted-foreground/60 font-[family-name:var(--font-display)] uppercase tracking-wider">
+          Ultimo controllo: {new Date(data.timestamp).toLocaleString("it-IT")}
         </div>
       ) : null}
     </div>

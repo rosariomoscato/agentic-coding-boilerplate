@@ -17,7 +17,12 @@ export function SignInButton() {
   const [isPending, setIsPending] = useState(false)
 
   if (sessionPending) {
-    return <Button disabled>Caricamento...</Button>
+    return (
+      <div className="flex items-center justify-center gap-3 text-muted-foreground font-[family-name:var(--font-display)] uppercase tracking-wider text-sm">
+        <div className="w-2 h-2 bg-neon rounded-full animate-pulse" />
+        Caricamento...
+      </div>
+    )
   }
 
   if (session) {
@@ -76,19 +81,26 @@ export function SignInButton() {
         />
       </div>
       {error && (
-        <p className="text-sm text-destructive">{error}</p>
+        <div className="p-3 border-2 border-destructive bg-destructive/5 text-destructive text-sm font-[family-name:var(--font-display)] uppercase tracking-wider">
+          {error}
+        </div>
       )}
       <Button type="submit" className="w-full" disabled={isPending}>
         {isPending ? "Accesso in corso..." : "Accedi"}
       </Button>
       <div className="text-center text-sm text-muted-foreground">
-        <Link href="/forgot-password" className="hover:underline">
+        <Link href="/forgot-password" className="hover:text-neon transition-colors">
           Password dimenticata?
         </Link>
       </div>
+      <div className="flex items-center gap-2">
+        <div className="flex-1 h-[1px] bg-border" />
+        <span className="text-xs text-muted-foreground font-[family-name:var(--font-display)] uppercase tracking-wider">oppure</span>
+        <div className="flex-1 h-[1px] bg-border" />
+      </div>
       <div className="text-center text-sm text-muted-foreground">
         Non hai un account?{" "}
-        <Link href="/register" className="text-primary hover:underline">
+        <Link href="/register" className="text-neon hover:underline font-[family-name:var(--font-display)] uppercase tracking-wider text-xs">
           Registrati
         </Link>
       </div>

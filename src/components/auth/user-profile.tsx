@@ -20,7 +20,9 @@ export function UserProfile() {
   const router = useRouter();
 
   if (isPending) {
-    return <div>Caricamento...</div>;
+    return (
+      <div className="w-8 h-8 border-2 border-brutal-border bg-surface animate-pulse" />
+    );
   }
 
   if (!session) {
@@ -32,7 +34,9 @@ export function UserProfile() {
           </Button>
         </Link>
         <Link href="/register">
-          <Button size="sm">Registrati</Button>
+          <Button size="sm">
+            Registrati
+          </Button>
         </Link>
       </div>
     );
@@ -47,13 +51,13 @@ export function UserProfile() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Avatar className="size-8 cursor-pointer hover:opacity-80 transition-opacity">
+        <Avatar className="size-9 cursor-pointer border-2 border-brutal-border hover:border-neon transition-colors shadow-[2px_2px_0px_0px_var(--brutal-shadow)]">
           <AvatarImage
             src={session.user?.image || ""}
             alt={session.user?.name || "User"}
             referrerPolicy="no-referrer"
           />
-          <AvatarFallback>
+          <AvatarFallback className="text-xs bg-surface">
             {(
               session.user?.name?.[0] ||
               session.user?.email?.[0] ||
@@ -65,10 +69,10 @@ export function UserProfile() {
       <DropdownMenuContent align="end" className="w-56">
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">
+            <p className="text-sm font-bold uppercase tracking-wider">
               {session.user?.name}
             </p>
-            <p className="text-xs leading-none text-muted-foreground">
+            <p className="text-xs text-muted-foreground truncate">
               {session.user?.email}
             </p>
           </div>
@@ -77,7 +81,7 @@ export function UserProfile() {
         <DropdownMenuItem asChild>
           <Link href="/profile" className="flex items-center">
             <User className="mr-2 h-4 w-4" />
-            Il tuo Profilo
+            Profilo
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />

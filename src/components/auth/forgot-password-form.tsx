@@ -39,13 +39,17 @@ export function ForgotPasswordForm() {
   if (success) {
     return (
       <div className="space-y-4 w-full max-w-sm text-center">
-        <p className="text-sm text-muted-foreground">
-          Se esiste un account con questa email, è stato inviato un link di reset password.
-          Controlla il terminale per l'URL di reset.
-        </p>
+        <div className="p-4 border-2 border-neon bg-neon/5">
+          <p className="text-sm text-neon font-[family-name:var(--font-display)] uppercase tracking-wider">
+            Email inviata con successo
+          </p>
+          <p className="text-xs text-muted-foreground mt-2">
+            Se esiste un account con questa email, riceverai un link di reset. Controlla il terminale per l&apos;URL.
+          </p>
+        </div>
         <Link href="/login">
           <Button variant="outline" className="w-full">
-            Torna all'accesso
+            Torna all&apos;accesso
           </Button>
         </Link>
       </div>
@@ -67,14 +71,16 @@ export function ForgotPasswordForm() {
         />
       </div>
       {error && (
-        <p className="text-sm text-destructive">{error}</p>
+        <div className="p-3 border-2 border-destructive bg-destructive/5 text-destructive text-sm font-[family-name:var(--font-display)] uppercase tracking-wider">
+          {error}
+        </div>
       )}
       <Button type="submit" className="w-full" disabled={isPending}>
         {isPending ? "Invio in corso..." : "Invia link di reset"}
       </Button>
       <div className="text-center text-sm text-muted-foreground">
         Ti ricordi la password?{" "}
-        <Link href="/login" className="text-primary hover:underline">
+        <Link href="/login" className="text-neon hover:underline font-[family-name:var(--font-display)] uppercase tracking-wider text-xs">
           Accedi
         </Link>
       </div>

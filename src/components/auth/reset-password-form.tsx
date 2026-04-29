@@ -22,11 +22,13 @@ export function ResetPasswordForm() {
   if (error === "invalid_token" || !token) {
     return (
       <div className="space-y-4 w-full max-w-sm text-center">
-        <p className="text-sm text-destructive">
-          {error === "invalid_token"
-            ? "Questo link di reset password non è valido o è scaduto."
-            : "Nessun token di reset fornito."}
-        </p>
+        <div className="p-4 border-2 border-destructive bg-destructive/5">
+          <p className="text-sm text-destructive font-[family-name:var(--font-display)] uppercase tracking-wider">
+            {error === "invalid_token"
+              ? "Link non valido o scaduto"
+              : "Nessun token fornito"}
+          </p>
+        </div>
         <Link href="/forgot-password">
           <Button variant="outline" className="w-full">
             Richiedi un nuovo link
@@ -97,7 +99,9 @@ export function ResetPasswordForm() {
         />
       </div>
       {formError && (
-        <p className="text-sm text-destructive">{formError}</p>
+        <div className="p-3 border-2 border-destructive bg-destructive/5 text-destructive text-sm font-[family-name:var(--font-display)] uppercase tracking-wider">
+          {formError}
+        </div>
       )}
       <Button type="submit" className="w-full" disabled={isPending}>
         {isPending ? "Reimpostazione in corso..." : "Reimposta password"}

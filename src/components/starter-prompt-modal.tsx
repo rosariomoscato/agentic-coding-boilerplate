@@ -16,7 +16,7 @@ const STARTER_PROMPT = `I'm working with an agentic coding boilerplate project t
 
 ## Current Agentic Coding Boilerplate Structure
 - **Authentication**: Better Auth with Google OAuth integration
-- **Database**: Drizzle ORM with PostgreSQL setup  
+- **Database**: Drizzle ORM with PostgreSQL setup
 - **AI Integration**: Vercel AI SDK with OpenAI integration
 - **UI**: shadcn/ui components with Tailwind CSS
 - **Current Routes**:
@@ -63,11 +63,11 @@ The only things to preserve are:
 **IMPORTANT**: When implementing any AI functionality, always use the \`OPENAI_MODEL\` environment variable for the model name instead of hardcoding it:
 
 \`\`\`typescript
-// ✓ Correct - Use environment variable
+// Correct - Use environment variable
 const model = process.env.OPENAI_MODEL || "gpt-5-mini";
 model: openai(model)
 
-// ✗ Incorrect - Don't hardcode model names
+// Incorrect - Don't hardcode model names
 model: openai("gpt-5-mini")
 \`\`\`
 
@@ -137,7 +137,7 @@ export function StarterPromptModal() {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button size="sm" className="w-full">
-          <Copy className="w-4 h-4 mr-2" />
+          <Copy className="w-3.5 h-3.5 mr-1.5" />
           Ottieni Prompt Iniziale AI
         </Button>
       </DialogTrigger>
@@ -150,22 +150,22 @@ export function StarterPromptModal() {
         </DialogHeader>
 
         <div className="space-y-4">
-          <div>
+          <div className="space-y-2">
             <label
               htmlFor="project-description"
-              className="text-sm font-medium mb-2 block"
+              className="text-sm font-bold uppercase tracking-wider font-[family-name:var(--font-display)]"
             >
-              Descrivi il tuo progetto (opzionale)
+              Descrivi il tuo progetto
             </label>
             <textarea
               id="project-description"
-              placeholder="es., Un'app di gestione attività per team con collaborazione in tempo reale, tempistiche progetto e prioritizzazione attività basata su AI..."
+              placeholder="es., Un'app di gestione attività per team con collaborazione in tempo reale..."
               value={projectDescription}
               onChange={(e) => setProjectDescription(e.target.value)}
-              className="w-full h-24 px-3 py-2 border rounded-md resize-none text-sm"
+              className="w-full h-24 brutal-input resize-none"
             />
-            <p className="text-xs text-muted-foreground mt-1">
-              Opzionale: Aggiungi dettagli sul tuo progetto per ottenere un prompt più personalizzato
+            <p className="text-xs text-muted-foreground font-[family-name:var(--font-display)] uppercase tracking-wider">
+              Opzionale: Aggiungi dettagli per un prompt personalizzato
             </p>
           </div>
 
@@ -173,12 +173,12 @@ export function StarterPromptModal() {
             <Button onClick={handleCopy} className="flex-1">
               {copied ? (
                 <>
-                  <Check className="w-4 h-4 mr-2" />
+                  <Check className="w-3.5 h-3.5 mr-1.5" />
                   Copiato!
                 </>
               ) : (
                 <>
-                  <Copy className="w-4 h-4 mr-2" />
+                  <Copy className="w-3.5 h-3.5 mr-1.5" />
                   Copia Prompt Iniziale
                 </>
               )}
@@ -188,9 +188,9 @@ export function StarterPromptModal() {
             </Button>
           </div>
 
-          <div className="text-xs text-muted-foreground border-t pt-3">
+          <div className="text-xs text-muted-foreground border-t-2 border-brutal-border pt-3 font-[family-name:var(--font-display)] uppercase tracking-wider">
             <strong>Come usare:</strong> Copia questo prompt e incollalo in
-            Claude Code, Cursor, o qualsiasi assistente di coding AI per iniziare con il tuo progetto.
+            Claude Code, Cursor, o qualsiasi assistente di coding AI.
           </div>
         </div>
       </DialogContent>

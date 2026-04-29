@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -14,6 +14,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -55,7 +61,6 @@ export const metadata: Metadata = {
   },
 };
 
-// JSON-LD structured data for SEO
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
@@ -81,7 +86,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="it" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -89,16 +94,16 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} antialiased min-h-screen flex flex-col grid-bg`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
           <SiteHeader />
-          <main id="main-content" className="flex-1">{children}</main>
+          <main id="main-content" className="flex-1 relative">{children}</main>
           <SiteFooter />
           <Toaster richColors position="top-right" />
         </ThemeProvider>

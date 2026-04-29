@@ -1,13 +1,6 @@
 import { headers } from "next/headers"
 import { redirect } from "next/navigation"
 import { SignInButton } from "@/components/auth/sign-in-button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
 import { auth } from "@/lib/auth"
 
 export default async function LoginPage({
@@ -24,21 +17,30 @@ export default async function LoginPage({
   const { reset } = await searchParams
 
   return (
-    <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="text-center">
-          <CardTitle>Bentornato</CardTitle>
-          <CardDescription>Accedi al tuo account</CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-col items-center">
-          {reset === "success" && (
-            <p className="mb-4 text-sm text-green-600 dark:text-green-400">
-              Password reimpostata con successo. Accedi con la tua nuova password.
-            </p>
-          )}
-          <SignInButton />
-        </CardContent>
-      </Card>
+    <div className="w-full max-w-md">
+      <div className="brutal-card p-8">
+        <div className="text-center space-y-2 mb-6">
+          <h1 className="text-2xl font-bold uppercase tracking-wider font-[family-name:var(--font-display)]">
+            Bentornato
+          </h1>
+          <p className="text-sm text-muted-foreground font-[family-name:var(--font-display)] uppercase tracking-wider">
+            Accedi al tuo account
+          </p>
+          <div className="flex items-center justify-center gap-2 pt-2">
+            <span className="h-[2px] w-8 bg-border" />
+            <span className="w-2 h-2 border-2 border-neon rotate-45" />
+            <span className="h-[2px] w-8 bg-border" />
+          </div>
+        </div>
+
+        {reset === "success" && (
+          <div className="mb-4 p-3 border-2 border-neon bg-neon/5 text-neon text-sm font-[family-name:var(--font-display)] uppercase tracking-wider">
+            Password reimpostata con successo.
+          </div>
+        )}
+
+        <SignInButton />
+      </div>
     </div>
   )
 }

@@ -105,14 +105,21 @@ export function SignUpForm() {
         />
       </div>
       {error && (
-        <p className="text-sm text-destructive">{error}</p>
+        <div className="p-3 border-2 border-destructive bg-destructive/5 text-destructive text-sm font-[family-name:var(--font-display)] uppercase tracking-wider">
+          {error}
+        </div>
       )}
       <Button type="submit" className="w-full" disabled={isPending}>
         {isPending ? "Creazione account in corso..." : "Crea account"}
       </Button>
+      <div className="flex items-center gap-2">
+        <div className="flex-1 h-[1px] bg-border" />
+        <span className="text-xs text-muted-foreground font-[family-name:var(--font-display)] uppercase tracking-wider">oppure</span>
+        <div className="flex-1 h-[1px] bg-border" />
+      </div>
       <div className="text-center text-sm text-muted-foreground">
-        Hai già un account?{" "}
-        <Link href="/login" className="text-primary hover:underline">
+        Hai gi&agrave; un account?{" "}
+        <Link href="/login" className="text-neon hover:underline font-[family-name:var(--font-display)] uppercase tracking-wider text-xs">
           Accedi
         </Link>
       </div>
