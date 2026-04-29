@@ -7,8 +7,6 @@ type DiagnosticsResponse = {
   env: {
     POSTGRES_URL: boolean;
     BETTER_AUTH_SECRET: boolean;
-    GOOGLE_CLIENT_ID: boolean;
-    GOOGLE_CLIENT_SECRET: boolean;
     OPENROUTER_API_KEY: boolean;
     NEXT_PUBLIC_APP_URL: boolean;
   };

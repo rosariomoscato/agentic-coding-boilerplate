@@ -7,8 +7,6 @@ interface DiagnosticsResponse {
   env: {
     POSTGRES_URL: boolean;
     BETTER_AUTH_SECRET: boolean;
-    GOOGLE_CLIENT_ID: boolean;
-    GOOGLE_CLIENT_SECRET: boolean;
     OPENROUTER_API_KEY: boolean;
     NEXT_PUBLIC_APP_URL: boolean;
   };
@@ -38,8 +36,6 @@ export async function GET(req: Request) {
   const env = {
     POSTGRES_URL: Boolean(process.env.POSTGRES_URL),
     BETTER_AUTH_SECRET: Boolean(process.env.BETTER_AUTH_SECRET),
-    GOOGLE_CLIENT_ID: Boolean(process.env.GOOGLE_CLIENT_ID),
-    GOOGLE_CLIENT_SECRET: Boolean(process.env.GOOGLE_CLIENT_SECRET),
     OPENROUTER_API_KEY: Boolean(process.env.OPENROUTER_API_KEY),
     NEXT_PUBLIC_APP_URL: Boolean(process.env.NEXT_PUBLIC_APP_URL),
   } as const;
@@ -118,8 +114,7 @@ export async function GET(req: Request) {
     authRouteResponding = false;
   }
 
-  const authConfigured =
-    env.BETTER_AUTH_SECRET && env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET;
+  const authConfigured = env.BETTER_AUTH_SECRET;
   const aiConfigured = env.OPENROUTER_API_KEY; // We avoid live-calling the AI provider here
 
   // Storage configuration check

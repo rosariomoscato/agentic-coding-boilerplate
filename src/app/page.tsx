@@ -188,10 +188,6 @@ export default function Home() {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1 h-1 bg-neon" />
-                  GOOGLE_CLIENT_ID / SECRET
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1 h-1 bg-neon" />
                   OPENROUTER_API_KEY
                 </li>
               </ul>

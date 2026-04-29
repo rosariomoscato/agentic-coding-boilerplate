@@ -9,8 +9,6 @@ type DiagnosticsResponse = {
   env: {
     POSTGRES_URL: boolean;
     BETTER_AUTH_SECRET: boolean;
-    GOOGLE_CLIENT_ID: boolean;
-    GOOGLE_CLIENT_SECRET: boolean;
     OPENROUTER_API_KEY: boolean;
     NEXT_PUBLIC_APP_URL: boolean;
   };
@@ -75,11 +73,9 @@ export function SetupChecklist() {
       label: "Variabili d'ambiente",
       ok:
         !!data?.env.POSTGRES_URL &&
-        !!data?.env.BETTER_AUTH_SECRET &&
-        !!data?.env.GOOGLE_CLIENT_ID &&
-        !!data?.env.GOOGLE_CLIENT_SECRET,
+        !!data?.env.BETTER_AUTH_SECRET,
       detail:
-        "POSTGRES_URL, BETTER_AUTH_SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET",
+        "POSTGRES_URL, BETTER_AUTH_SECRET",
     },
     {
       key: "db",
