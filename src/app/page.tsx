@@ -82,6 +82,18 @@ export default function Home() {
               className="w-full h-auto"
             />
           </div>
+          <p className="text-center mt-4 text-sm">
+            Clicca{" "}
+            <a
+              href="https://getupnote.com/share/notes/QWbBkZt1hUd41ERkvVofnZMidOz2/019dd86c-2b83-774b-9e84-8f24a66765cd"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline font-bold text-[var(--color-accent)] hover:opacity-80 transition-opacity"
+            >
+              QUI
+            </a>{" "}
+            per la descrizione del Tech Stack
+          </p>
         </div>
       </section>
 
